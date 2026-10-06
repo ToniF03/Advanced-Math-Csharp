@@ -12,6 +12,7 @@ namespace Calcify.Math.Conversion
     /// all methods are static and stateless.</remarks>
     public static class Converter
     {
+        #region Angle
         /// <summary>
         /// Converts an angle value from one unit of measurement to another.
         /// </summary>
@@ -108,6 +109,9 @@ namespace Calcify.Math.Conversion
             }
             return result;
         }
+        #endregion
+
+        #region Data Size
         /// <summary>
         /// Converts a data size value from one unit to another.
         /// </summary>
@@ -267,6 +271,9 @@ namespace Calcify.Math.Conversion
             }
             return result;
         }
+        #endregion
+
+        #region Frequency
         /// <summary>
         /// Converts a frequency value from one unit to another.
         /// </summary>
@@ -319,6 +326,9 @@ namespace Calcify.Math.Conversion
             }
             return result;
         }
+        #endregion
+
+        #region Length
         /// <summary>
         /// Converts a length value from one unit of measurement to another.
         /// </summary>
@@ -694,7 +704,9 @@ namespace Calcify.Math.Conversion
 
             return result;
         }
+        #endregion
 
+        #region Mass
         /// <summary>
         /// Converts a mass value from one unit to another.
         /// </summary>
@@ -929,7 +941,9 @@ namespace Calcify.Math.Conversion
 
             return result;
         }
+        #endregion
 
+        #region Temperature
         /// <summary>
         /// Converts a temperature value from one unit to another using the specified source and target temperature
         /// units.
@@ -1007,6 +1021,9 @@ namespace Calcify.Math.Conversion
             }
             return result;
         }
+        #endregion
+
+        #region Time
         /// <summary>
         /// Converts a time value from one unit to another.
         /// </summary>
@@ -1670,61 +1687,62 @@ namespace Calcify.Math.Conversion
             {
                 if (targetUnit == TimeUnit.Century)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToCenturies(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToCenturies(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Decade)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToDecades(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToDecades(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Year)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToYears(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToYears(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Month)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToMonths(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToMonths(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Week)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToWeeks(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToWeeks(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Day)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToDays(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToDays(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Hour)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToHours(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToHours(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Minute)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToMinutes(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToMinutes(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Second)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToSeconds(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToSeconds(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Millisecond)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToMilliseconds(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToMilliseconds(val);
                     result = value;
                 }
                 else if (targetUnit == TimeUnit.Microsecond)
                 {
-                    double value = Math.Conversion.Time.Microseconds.ToNanoseconds(val);
+                    double value = Math.Conversion.Time.Nanoseconds.ToMicroseconds(val);
                     result = value;
                 }
             }
             return result;
         }
+        #endregion
     }
 }

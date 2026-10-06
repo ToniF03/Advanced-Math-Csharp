@@ -49,5 +49,120 @@ namespace Calcify.Classes.Math
                 throw new ArgumentException();
             return Factorial(n) / (Factorial(r) * Factorial(n - r));
         }
+
+        /// <summary>
+        /// Returns the sign of a double-precision floating-point number.
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to evaluate.</param>
+        /// <returns>1 if the number is positive, -1 if it is negative, and 0 if it is zero.</returns>
+        public static double sign(double d)
+        {
+            if (d > 0) return 1;
+            else if (d < 0) return -1;
+            else return 0;
+        }
+
+
+
+        /// <summary>
+        /// Returns the cube root of a double-precision floating-point number.
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to evaluate.</param>
+        /// <returns>The cube root of the number as a double-precision floating-point value.</returns>
+        public static double Cbrt(double d)
+        {
+            return System.Math.Pow(d, 1.0 / 3.0);
+        }
+
+        /// <summary>
+        /// Returns the inverse hyperbolic cosine of a double-precision floating-point number.
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to evaluate.</param>
+        /// <returns>The inverse hyperbolic cosine of the number as a double-precision floating-point value.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static double Acosh(double d)
+        {
+            if (d < 1)
+                throw new ArgumentOutOfRangeException();
+            return System.Math.Log(d + System.Math.Sqrt(d * d - 1));
+        }
+
+        /// <summary>
+        /// Returns the inverse hyperbolic sine of a double-precision floating-point number.
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to evaluate.</param>
+        /// <returns>The inverse hyperbolic sine of the number as a double-precision floating-point value.</returns>
+        public static double Asinh(double d)
+        {
+            return System.Math.Log(d + System.Math.Sqrt(d * d + 1));
+        }
+
+        /// <summary>
+        /// Returns the inverse hyperbolic tangent of a double-precision floating-point number.
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to evaluate.</param>
+        /// <returns>The inverse hyperbolic tangent of the number as a double-precision floating-point value.</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static double Atanh(double d)
+        {
+            if (d <= -1 || d >= 1)
+                throw new ArgumentOutOfRangeException();
+            return 0.5 * System.Math.Log((1 + d) / (1 - d));
+        }
+
+        /// <summary>
+        /// Returns the modulo of two double-precision floating-point numbers, ensuring a non-negative result.
+        /// </summary>
+        /// <param name="a">The dividend.</param>
+        /// <param name="b">The divisor. Must not be zero.</param>
+        /// <returns>A value greater than or equal to zero and less than the absolute value of <paramref name="b"/>.</returns>
+        /// <exception cref="ArgumentException"><paramref name="b"/> is zero.</exception>
+        public static double modulo(double a, double b)
+        {
+            if (b == 0)
+                throw new ArgumentException("The divisor cannot be zero.", nameof(b));
+            double result = (((a % b) + b) % b);
+            if (result < 0)
+                result += System.Math.Abs(b);
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether a double-precision floating-point number is an integer (i.e., has no fractional part).
+        /// </summary>
+        /// <param name="d">The double-precision floating-point number to check.</param>
+        /// <returns><c>true</c> if the number is an integer; otherwise, <c>false</c>.</returns>
+        public static bool isInteger(double d)
+        {
+            return d % 1 == 0;
+        }
+
+        /// <summary>
+        /// Calculates the number of permutations of r items selected from a set of n items.
+        /// </summary>
+        /// <param name="n">The total number of items.</param>
+        /// <param name="r">The number of items to select.</param>
+        /// <returns>The number of permutations.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double Permutation(int n, int r)
+        {
+            if (n < r)
+                throw new ArgumentException("n must be greater than or equal to r.");
+            return Factorial(n) / Factorial(n - r);
+        }
+
+        public static double Combination(int n, int r)
+        {
+            if (n < r)
+                throw new ArgumentException("n must be greater than or equal to r.");
+            return Factorial(n) / (Factorial(r) * Factorial(n - r));
+        }
+
+        public static double CombinationA(int n, int r)
+        {
+            if (n < r)
+                throw new ArgumentException("n must be greater than or equal to r.");
+            return Factorial(r + n - 1) / (Factorial(r) * Factorial(n - 1));
+        }
     }
 }

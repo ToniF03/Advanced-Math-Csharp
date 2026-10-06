@@ -50,24 +50,25 @@ namespace Calcify.Math
         /// <returns>A dictionary with all Regex'</returns>
         public static Dictionary<string, Regex> RegexDict()
         {
-            Dictionary<string, Regex> dict = new Dictionary<string, Regex>();
-            dict.Add("Abs", new Regex(@"\|((\d+(\.\d+)?)|\||(\+|-|\*|\/|\^)(?!\+|\*|\/|\^|\!)|(|\(|\)|\!))*\|"));
-            dict.Add("Arithmetics", new Regex(@"(^-)?\d+(\.\d+)?(\+|-)\d+(\.\d+)?"));
-            dict.Add("Brackets", new Regex(@"\(-?\d+(\.\d+)?(((\+|-|\*|\:)\d+(\.\d+)?)+)\)"));
-            dict.Add("Factorial", new Regex(@"\d+(\.\d+)?\!"));
-            dict.Add("Geometrics", new Regex(@"(\(-\d+(\.\d+)?\)|(^-)?\d+(\.\d+)?)(\*|\/)(\(-\d+(\.\d+)?\)|\d+(\.\d+)?)"));
-            dict.Add("GeoOperators", new Regex(@"(\*|\/)"));
-            dict.Add("MinusInBrackets", new Regex(@"^\(-\d+(\.\d+)?\)"));
-            dict.Add("Negatives", new Regex(@"(\+|-)\(-?\d+(\.\d+)?\)"));
-            dict.Add("Numbers", new Regex(@"^-?\d+(\.\d+)?$"));
-            dict.Add("NumbersInAbs", new Regex(@"\|\d+(\.\d+)?\|"));
-            dict.Add("NumbersInBetween", new Regex(@"(^-)?\d+(\.\d+)?"));
-            dict.Add("NumbersInBrackets", new Regex(@"\(\d+(\.\d+)?\)"));
-            dict.Add("Powers", new Regex(@"((\d+\.)?\d+-?\^\d+(\.\d+)?)"));
-            dict.Add("Syntax", new Regex(@"^((\d+(\.\d+)?)|\||(\+|-|\*|\/|\^)(?!\+|\*|\/|\^|\!)|(|\(|\)|\!))*$"));
-            dict.Add("WrongBrackets", new Regex(@"\(\D*\)"));
-            dict.Add("WrongAbs", new Regex(@"\|\D*\|"));
-            return dict;
+            return new Dictionary<string, Regex>
+            {
+                { "Abs", new Regex(@"\|((\d+(\.\d+)?)|\||(\+|-|\*|\/|\^)(?!\+|\*|\/|\^|\!)|(|\(|\)|\!))*\|") },
+                { "Arithmetics", new Regex(@"(^-)?\d+(\.\d+)?(\+|-)\d+(\.\d+)?") },
+                { "Brackets", new Regex(@"\(-?\d+(\.\d+)?(((\+|-|\*|\:)\d+(\.\d+)?)+)\)") },
+                { "Factorial", new Regex(@"\d+(\.\d+)?\!") },
+                { "Geometrics", new Regex(@"(\(-\d+(\.\d+)?\)|(^-)?\d+(\.\d+)?)(\*|\/)(\(-\d+(\.\d+)?\)|\d+(\.\d+)?)") },
+                { "GeoOperators", new Regex(@"(\*|\/)") },
+                { "MinusInBrackets", new Regex(@"^\(-\d+(\.\d+)?\)") },
+                { "Negatives", new Regex(@"(\+|-)\(-?\d+(\.\d+)?\)") },
+                { "Numbers", new Regex(@"^-?\d+(\.\d+)?$") },
+                { "NumbersInAbs", new Regex(@"\|\d+(\.\d+)?\|") },
+                { "NumbersInBetween", new Regex(@"(^-)?\d+(\.\d+)?") },
+                { "NumbersInBrackets", new Regex(@"\(\d+(\.\d+)?\)") },
+                { "Powers", new Regex(@"((\d+\.)?\d+-?\^\d+(\.\d+)?)") },
+                { "Syntax", new Regex(@"^((\d+(\.\d+)?)|\||(\+|-|\*|\/|\^)(?!\+|\*|\/|\^|\!)|(|\(|\)|\!))*$") },
+                { "WrongBrackets", new Regex(@"\(\D*\)") },
+                { "WrongAbs", new Regex(@"\|\D*\|") }
+            };
         }
 
         /// <summary>
