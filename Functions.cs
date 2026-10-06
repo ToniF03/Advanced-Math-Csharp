@@ -115,7 +115,7 @@ namespace Calcify.Classes.Math
         /// <param name="b">The divisor. Must not be zero.</param>
         /// <returns>A value greater than or equal to zero and less than the absolute value of <paramref name="b"/>.</returns>
         /// <exception cref="ArgumentException"><paramref name="b"/> is zero.</exception>
-        public static double modulo(double a, double b)
+        public static double Modulo(double a, double b)
         {
             if (b == 0)
                 throw new ArgumentException("The divisor cannot be zero.", nameof(b));
