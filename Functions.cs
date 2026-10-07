@@ -188,5 +188,75 @@ namespace Calcify.Classes.Math
                 throw new ArgumentException("n must be greater than or equal to r.");
             return Factorial(r + n - 1) / (Factorial(r) * Factorial(n - 1));
         }
+
+        /// <summary>
+        /// Clamps a double-precision floating-point number to a specified range, returning the nearest value within that range.
+        /// </summary>
+        /// <param name="value">The value to clamp.</param>
+        /// <param name="min">The minimum value of the range.</param>
+        /// <param name="max">The maximum value of the range.</param>
+        /// <returns>The clamped value.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double Clamp(double value, double min, double max)
+        {
+            if (min > max)
+                throw new ArgumentException("min cannot be greater than max.");
+            return System.Math.Max(min, System.Math.Min(max, value));
+        }
+
+        /// <summary>
+        /// Calculates the standard deviation of a set of double-precision floating-point numbers.
+        /// </summary>
+        /// <param name="values">The values to use when calculating the standard deviation.</param>
+        /// <returns>The population standard deviation of the values.</returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="values"/> is empty.</exception>
+        public static double StandardDeviation(double[] values)
+        {
+            if (values.Length == 0)
+                throw new ArgumentException("The array must contain at least one value.", nameof(values));
+            double mean = 0;
+            foreach (double value in values)
+            {
+                mean += value;
+            }
+            mean /= values.Length;
+            double sumOfSquares = 0;
+            foreach (double value in values)
+            {
+                sumOfSquares += (value - mean) * (value - mean);
+            }
+            return System.Math.Sqrt(sumOfSquares / values.Length);
+        }
+
+        /// <summary>
+        /// Calculates the variance of a set of double-precision floating-point numbers.
+        /// </summary>
+        /// <param name="values">The values to use when calculating the variance.</param>
+        /// <returns>The population variance of the values.</returns>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="values"/> is empty.</exception>
+        public static double Variance(double[] values)
+        {
+            if (values.Length == 0)
+                throw new ArgumentException("The array must contain at least one value.", nameof(values));
+            double mean = 0;
+            foreach (double value in values)
+            {
+                mean += value;
+            }
+            mean /= values.Length;
+            double sumOfSquares = 0;
+            foreach (double value in values)
+            {
+                sumOfSquares += (value - mean) * (value - mean);
+            }
+            return sumOfSquares / values.Length;
+        }
+
+        public static double Root(double value, double degree)
+        {
+            if (degree == 0)
+                throw new ArgumentException("Degree cannot be zero.", nameof(degree));
+            return System.Math.Pow(value, 1.0 / degree);
+        }
     }
 }
